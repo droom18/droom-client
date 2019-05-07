@@ -11,6 +11,7 @@ class LoginForm extends React.Component {
   }
 
   handleChange = e => {
+    e.preventDefault();
     this.setState({
       ...this.state,
       [e.target.name]: e.target.value
@@ -19,11 +20,10 @@ class LoginForm extends React.Component {
 
   login = () => {
     axios
-      .post(
-        `https://luncher-backend.herokuapp.com/api/login`,
-        this.state
-      )
-      .then(response => console.log(response))
+      .post(`https://luncher-backend.herokuapp.com/api/login`, this.state)
+      .then(response => {
+        localStorage.setItem("token", response.data.token);
+      })
       .catch(err => console.log(err));
   };
 
@@ -50,6 +50,7 @@ class LoginForm extends React.Component {
         </form>
 
         <button onClick={this.login}>Login </button>
+        <br />
         <button>Add new user button</button>
       </div>
     );
