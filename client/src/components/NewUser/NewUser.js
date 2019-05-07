@@ -21,7 +21,7 @@ class NewUser extends React.Component {
       lastName: "",
       email: "",
       password: "",
-      role: ""
+      role: "admin"
     };
   }
 
@@ -30,6 +30,23 @@ class NewUser extends React.Component {
     this.setState({
       ...this.state,
       [e.target.name]: e.target.value
+    });
+  };
+
+  register = () => {
+    axios
+      .post(`https://luncher-backend.herokuapp.com/api/register`, this.state)
+      .then(response => {
+        localStorage.setItem("token", response.data.token);
+      })
+      .catch(err => console.log(err));
+
+    this.setState({
+      firstName: "",
+      lastName: "",
+      email: "",
+      password: "",
+      role: ""
     });
   };
 
@@ -64,7 +81,7 @@ class NewUser extends React.Component {
             onChange={this.handleChange}
           />
           <br />
-          Password:
+          <label>Password:</label>
           <input
             type="password"
             name="password"
@@ -73,13 +90,22 @@ class NewUser extends React.Component {
             onChange={this.handleChange}
           />
           <p style={passwordReq}>*Password must be over 5 chars</p>
-          Role:
+          {/* Role: */}
           {/* <input
-            type="radio"
+            type="text"
             name="role"
             placeholder="Role"
             value={this.state.role}
+            onChange={this.handleChange}
           /> */}
+          {/* <br />
+          <input
+            type="radio"
+            name="role"
+            value={this.state.role}
+            onChange={this.handleChange}
+          />
+          <label htmlFor="admin"> Administrator</label>
           <br />
           <input
             type="radio"
@@ -87,17 +113,11 @@ class NewUser extends React.Component {
             value={this.state.role}
             onChange={this.handleChange}
           />
-          <label for="admin"> Administrator</label>
-          <br />
-          <input
-            type="radio"
-            name="role"
-            value={this.state.role}
-            onChange={this.handleChange}
-          />
-          <label for="donor"> Donor</label>
-          <br />
-          <input type="submit" value="Add new user button" />
+          <label htmlFor="donor"> Donor</label>
+          <br /> */}
+          <button type="button" onClick={this.register}>
+            Add new user button
+          </button>
         </form>
       </div>
     );
