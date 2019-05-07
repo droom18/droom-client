@@ -1,13 +1,31 @@
-import React from 'react'
+import React from "react";
+import axios from "axios";
 
 class LoginForm extends React.Component {
-  constructor(props) {
-    super(props)
+  constructor() {
+    super();
     this.state = {
-      email: '',
-      password: ''
-    }
+      email: "",
+      password: ""
+    };
   }
+
+  handleChange = e => {
+    this.setState({
+      ...this.state,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  login = () => {
+    axios
+      .post(
+        `https://luncher-backend.herokuapp.com/api/login`,
+        this.state
+      )
+      .then(response => console.log(response))
+      .catch(err => console.log(err));
+  };
 
   render() {
     return (
@@ -19,21 +37,23 @@ class LoginForm extends React.Component {
             name="email"
             placeholder="Email"
             value={this.state.email}
+            onChange={this.handleChange}
           />
           Password:
           <input
             type="password"
             name="password"
             placeholder="password"
-            value="Password Input"
+            value={this.state.password}
+            onChange={this.handleChange}
           />
         </form>
 
-        <button>Login </button>
+        <button onClick={this.login}>Login </button>
         <button>Add new user button</button>
       </div>
-    )
+    );
   }
 }
 
-export default LoginForm
+export default LoginForm;
