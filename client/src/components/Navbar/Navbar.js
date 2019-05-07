@@ -6,21 +6,19 @@ const Navbar = () => {
         <div className="navbar">
             <div>
                 <Link className="school-list" to="/">
-                Home
+                    Home
                 </Link>
             </div>
             <div>
                 {/* check api for link for schools */}
                 <Link className="school-form" to="/schools/schoolRoutes">
-                School list
+                    School list
                 </Link>
-
-
                 {/* ./donations/donationRoutes */}
             </div>
             <div>
                 <Link className="donation-list" to="/donations/donationRoutes">
-                Donation List
+                    Donation List
                 </Link>
             </div>
          </div>
