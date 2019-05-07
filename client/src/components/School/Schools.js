@@ -12,8 +12,9 @@ class Schools extends Component {
 
   componentDidMount() {
     axios
-      .get('https://lambdaschool.invisionapp.com/share/Q5RJZ2MZEKJ#/screens/358744755')
+      .get('https://luncher-backend.herokuapp.com/api/schools')
       .then(res => {
+        console.log(res.data)
         this.setState({ schools: res.data });
       })
       .catch(err => {
@@ -43,14 +44,15 @@ class Schools extends Component {
           <ul>
             {this.state.schools.map(school => {
               console.log(school)
+              return (
                 // <h3>{school}</h3>
                 // <School
-                // <h3>{this.state.school}</h3>
+                <h3>{this.state.school}</h3>
                   // name={school.name}
                   // id={School.id}
                   // key={School.id}
                 // />
-              
+              )
             })}
           </ul>
         </div>
