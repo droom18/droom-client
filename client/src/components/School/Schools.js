@@ -47,10 +47,8 @@ class Schools extends Component {
               return (
                 // <h3>{school}</h3>
                 // <School
-                <h3>{this.state.school}</h3>
-                  // name={school.name}
-                  // id={School.id}
-                  // key={School.id}
+                <h3>{school.schoolName}</h3>
+              
                 // />
               )
             })}

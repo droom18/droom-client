@@ -1,6 +1,7 @@
 import React from "react";
 import LoginForm from "../LoginForm/index";
 import NewUser from '../NewUser/NewUser';
+import Schools from '../School/Schools';
 
 const Login = () => {
   return (
@@ -9,6 +10,7 @@ const Login = () => {
       <button>To Donate page link!</button>
       <LoginForm />
       <NewUser />
+      <Schools />
     </div>
   );
 };
