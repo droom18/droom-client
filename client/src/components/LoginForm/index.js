@@ -22,6 +22,7 @@ class LoginForm extends React.Component {
     axios
       .post(`https://luncher-backend.herokuapp.com/api/login`, this.state)
       .then(response => {
+        console.log(response);
         localStorage.setItem("token", response.data.token);
       })
       .catch(err => console.log(err));
