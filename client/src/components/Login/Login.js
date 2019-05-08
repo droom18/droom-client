@@ -1,7 +1,7 @@
 import React from "react";
 import LoginForm from "../LoginForm/index";
-import NewUser from '../NewUser/NewUser';
-import Schools from '../School/Schools';
+import NewUser from "../NewUser/NewUser";
+import Schools from "../School/Schools";
 
 const Login = () => {
   return (
@@ -9,8 +9,8 @@ const Login = () => {
       <h1>Login Page</h1>
       <button>To Donate page link!</button>
       <LoginForm />
-      <NewUser />
-      <Schools />
+      {/* <NewUser /> */}
+      {/* <Schools /> */}
     </div>
   );
 };
