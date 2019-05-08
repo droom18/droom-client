@@ -53,6 +53,7 @@ class NewUser extends React.Component {
   render() {
     return (
       <div style={newUserStyle}>
+        <h1>This is the registration page</h1>
         <form>
           First Name:
           <input
