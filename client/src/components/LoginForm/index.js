@@ -5,10 +5,8 @@ class LoginForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: {
-        email: "",
-        password: ""
-      }
+      email: "",
+      password: ""
     };
   }
 
@@ -40,7 +38,7 @@ class LoginForm extends React.Component {
             type="text"
             name="email"
             placeholder="Email"
-            value={this.state.data.email}
+            value={this.state.email}
             onChange={this.handleChange}
           />
           Password:
@@ -48,14 +46,14 @@ class LoginForm extends React.Component {
             type="password"
             name="password"
             placeholder="password"
-            value={this.state.data.password}
+            value={this.state.password}
             onChange={this.handleChange}
           />
         </form>
 
-        <button onClick={() => this.props.login(this.state.data)}>
-          Login{" "}
-        </button>
+        {/* <button onClick={this.login}>Login </button> */}
+
+        <button onClick={() => this.login(this.state)}>Login </button>
         <br />
       </div>
     );

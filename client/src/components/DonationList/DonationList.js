@@ -43,20 +43,19 @@ class DonationList extends Component {
   render() {
     return (
       <div className="Admin">
-        <h1>Admin.js</h1>
+        <h1>Donation List</h1>
         <ul>
           {this.state.schools.map(school => {
-            {
-              /* console.log(school) */
-            }
             return (
-              // <h3>{school}</h3>
-              // <School
-              // if logged in then go here if not go to login
-
-              <h3>{school.schoolName}</h3>
-
-              // />
+              <div key={school.id}>
+                <h3>{school.schoolName}</h3>
+                <p>
+                  State: {school.state}, {school.zip}
+                </p>
+                <p>Funds needed: {school.fundsNeeded}</p>
+                <p>Contact: {school.contact}</p>
+                <hr />
+              </div>
             );
           })}
         </ul>

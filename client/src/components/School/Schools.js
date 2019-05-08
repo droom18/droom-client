@@ -49,12 +49,10 @@ class Schools extends Component {
             return (
               // if logged in then go here if not go to login
               <div key={school.id}>
-                <h3>{school.schoolName}</h3>
-                <p>
-                  State: {school.state}, {school.zip}
-                </p>
-                <p>Funds needed: {school.fundsNeeded}</p>
-                <p>Contact: {school.contact}</p>
+                <li>
+                  {school.schoolName}, {school.state}
+                </li>
+
                 <hr />
               </div>
             );
