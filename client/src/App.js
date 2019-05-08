@@ -57,9 +57,13 @@ class App extends React.Component {
               />
               <Route path="/donors/donorRoutes" component={NewSchool} />
 
-              <Route path="/donations/donationRoutes" render={props => <DonationList {...props} isLoggedIn={this.state} />}
+              <Route
+                path="/donations/donationRoutes"
+                render={props => (
+                  <DonationList {...props} isLoggedIn={this.state} />
+                )}
               />
-               <Route path="/credentials/loginRoutes" component={Login} />
+              <Route path="/credentials/loginRoutes" component={Login} />
             </div>
 
             <p>Test for GitHub PR</p>

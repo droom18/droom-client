@@ -17,7 +17,7 @@ class Admin extends Component {
       this.props.history.push("/");
     }
     axios
-      .get("https://luncher-backend.herokuapp.com/api/schools")
+      .get("https://luncher-backend.herokuapp.com/api/admin/school")
       .then(res => {
         console.log(res.data);
         this.setState({ schools: res.data });
@@ -28,17 +28,17 @@ class Admin extends Component {
       });
   }
 
-  addSchool = school => {
-    axios
-      .post("https://droom-buildweek-4-15-19.herokuapp.com/api/", school)
-      .then(res => {
-        this.setState({ schools: res.data });
-      })
-      .catch(err => {
-        console.log(err);
-        this.setState({ error: err });
-      });
-  };
+  // addSchool = school => {
+  //   axios
+  //     .post("https://droom-buildweek-4-15-19.herokuapp.com/api/", school)
+  //     .then(res => {
+  //       this.setState({ schools: res.data });
+  //     })
+  //     .catch(err => {
+  //       console.log(err);
+  //       this.setState({ error: err });
+  //     });
+  // };
 
   render() {
     return (
