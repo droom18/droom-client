@@ -23,15 +23,18 @@ const Navbar = () => {
       </div>
 
       <div>
-        {/* check api for link for schools */}
         <Link className="school-form" to="/schools/schoolRoutes">
           Participating Schools
         </Link>
-        {/* ./donations/donationRoutes */}
       </div>
       <div>
         <Link className="donation-list" to="/donations/donationRoutes">
           Donation List
+        </Link>
+      </div>
+      <div>
+        <Link className="admin" to="/admins/adminRoutes">
+          Admin page
         </Link>
       </div>
     </div>
