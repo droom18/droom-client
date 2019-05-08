@@ -48,13 +48,13 @@ class Schools extends Component {
           {this.state.schools.map(school => {
             return (
               // if logged in then go here if not go to login
-              <div>
-                <h3 key={school.id}>{school.schoolName}</h3>
-                <p key={school.id}>
+              <div key={school.id}>
+                <h3>{school.schoolName}</h3>
+                <p>
                   State: {school.state}, {school.zip}
                 </p>
-                <p key={school.id}>Funds needed: {school.fundsNeeded}</p>
-                <p key={school.id}>Contact: {school.contact}</p>
+                <p>Funds needed: {school.fundsNeeded}</p>
+                <p>Contact: {school.contact}</p>
                 <hr />
               </div>
             );
