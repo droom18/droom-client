@@ -20,7 +20,6 @@ class LoginForm extends React.Component {
     });
   };
 
-
   login = () => {
     axios
       .post(`https://luncher-backend.herokuapp.com/api/login`, this.state)
@@ -31,10 +30,10 @@ class LoginForm extends React.Component {
       .catch(err => console.log(err));
   };
 
-
   render() {
     return (
       <div>
+        <h1>This is the login page</h1>
         <form>
           Username:
           <input

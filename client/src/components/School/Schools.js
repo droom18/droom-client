@@ -43,20 +43,13 @@ class Schools extends Component {
   render() {
     return (
       <div className="Schools">
-        <h1>Schools.js</h1>
+        <h1>Participating Schools</h1>
         <ul>
           {this.state.schools.map(school => {
-            {
-              /* console.log(school) */
-            }
             return (
-              // <h3>{school}</h3>
-              // <School
               // if logged in then go here if not go to login
 
-              <h3>{school.schoolName}</h3>
-
-              // />
+              <p key={school.id}>{school.schoolName}</p>
             );
           })}
         </ul>
@@ -64,9 +57,5 @@ class Schools extends Component {
     );
   }
 }
-
-// Schools.defaultProps = {
-//  smurfs: [],
-// };
 
 export default Schools;
