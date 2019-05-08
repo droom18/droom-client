@@ -5,14 +5,27 @@ const Navbar = () => {
   return (
     <div className="navbar">
       <div>
-        <Link className="school-list" to="/">
+        <Link className="home" to="/">
           Home
         </Link>
       </div>
+
+      <div>
+        <Link className="login" to="/credentials/loginRoutes">
+          Login
+        </Link>
+      </div>
+
+      <div>
+        <Link className="sign-up" to="/credentials/registerRoutes">
+          Sign Up
+        </Link>
+      </div>
+
       <div>
         {/* check api for link for schools */}
         <Link className="school-form" to="/schools/schoolRoutes">
-          List of Schools*
+          Participating Schools
         </Link>
         {/* ./donations/donationRoutes */}
       </div>

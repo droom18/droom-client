@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar/Navbar";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Schools from "../src/components/School/Schools";
 import NewUser from "../src/components/NewUser/NewUser";
+import Homepage from "../src/components/Homepage/Homepage";
 
 function App() {
   return (
@@ -13,6 +14,8 @@ function App() {
           <Navbar />
           <div>
             <Route exact path="/credentials/loginRoutes" component={Login} />
+
+            <Route exact path="/" component={Homepage} />
 
             <Route exact path="/schools/schoolRoutes" component={Schools} />
             <Route path="/credentials/registerRoutes" component={NewUser} />
