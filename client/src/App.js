@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import login from "./components/Login/Login";
+import Login from "./components/Login/Login";
 import Navbar from "./components/Navbar/Navbar";
 import Schools from "../src/components/School/Schools";
 import NewUser from "../src/components/NewUser/NewUser";
@@ -56,10 +56,10 @@ class App extends React.Component {
                 render={props => <Admin {...props} isLoggedIn={this.state} />}
               />
               <Route path="/donors/donorRoutes" component={NewSchool} />
-              <Route
-                path="/donations/donationRoutes"
-                component={DonationList}
+
+              <Route path="/donations/donationRoutes" render={props => <DonationList {...props} isLoggedIn={this.state} />}
               />
+               <Route path="/credentials/loginRoutes" component={Login} />
             </div>
 
             <p>Test for GitHub PR</p>

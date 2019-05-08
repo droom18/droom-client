@@ -8,7 +8,7 @@ const Login = (props) => {
     <div>
       <h1>Login Page</h1>
       <button>To Donate page link!</button>
-      <LoginForm login={this.props.login}/>
+      <LoginForm />
       {/* <NewUser /> */}
       {/* <Schools /> */}
     </div>
