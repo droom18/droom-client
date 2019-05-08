@@ -1,10 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import LoginForm from "../LoginForm";
 
 const Homepage = () => {
   return (
     <div>
-      <p>list of schools in need</p>
+      <p>This is the Homepage</p>
+      <LoginForm />
+
       <Link className="sign-up" to="/credentials/registerRoutes">
         <button>Create profile</button>
       </Link>
