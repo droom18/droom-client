@@ -37,6 +37,11 @@ const Navbar = () => {
           Admin page
         </Link>
       </div>
+      <div>
+        <Link className="add-school" to="/donors/donorRoutes">
+          Add School
+        </Link>
+      </div>
     </div>
   );
 };
