@@ -1,12 +1,14 @@
 import React from "react";
-import axios from "axios";
+// import axios from "axios";
 
 class LoginForm extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
+      data : {
       email: "",
       password: ""
+      }
     };
   }
 
@@ -18,14 +20,14 @@ class LoginForm extends React.Component {
     });
   };
 
-  login = () => {
-    axios
-      .post(`https://luncher-backend.herokuapp.com/api/login`, this.state)
-      .then(response => {
-        localStorage.setItem("token", response.data.token);
-      })
-      .catch(err => console.log(err));
-  };
+  // login = () => {
+  //   axios
+  //     .post(`https://luncher-backend.herokuapp.com/api/login`, this.state)
+  //     .then(response => {
+  //       localStorage.setItem("token", response.data.token);
+  //     })
+  //     .catch(err => console.log(err));
+  // };
 
   render() {
     return (
@@ -36,7 +38,7 @@ class LoginForm extends React.Component {
             type="text"
             name="email"
             placeholder="Email"
-            value={this.state.email}
+            value={this.state.data.email}
             onChange={this.handleChange}
           />
           Password:
@@ -44,12 +46,12 @@ class LoginForm extends React.Component {
             type="password"
             name="password"
             placeholder="password"
-            value={this.state.password}
+            value={this.state.data.password}
             onChange={this.handleChange}
           />
         </form>
 
-        <button onClick={this.login}>Login </button>
+        <button onClick={() =>this.props.login(this.state.data)}>Login </button>
         <br />
         
       </div>

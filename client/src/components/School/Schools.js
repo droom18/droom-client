@@ -7,10 +7,14 @@ class Schools extends Component {
     super(props);
     this.state = {
       schools: [],
+      
     };
   }
 
   componentDidMount() {
+    // if logged in then do this else go to create user
+    // this.props.history? .push probably -- give route to the login page
+    if (!this.props.isLoggedIn) {this.props.history.push("/")}
     axios
       .get('https://luncher-backend.herokuapp.com/api/schools')
       .then(res => {
@@ -46,7 +50,9 @@ class Schools extends Component {
               console.log(school)
               return (
                 // <h3>{school}</h3>
-                // <School
+                // <School 
+                // if logged in then go here if not go to login
+
                 <h3>{school.schoolName}</h3>
               
                 // />
