@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import LoginForm from "../LoginForm/index"
+
 
 const Homepage = () => {
   return (
@@ -8,6 +10,7 @@ const Homepage = () => {
       <Link className="sign-up" to="/credentials/registerRoutes">
         <button>Create profile</button>
       </Link>
+     <LoginForm />
     </div>
   );
 };

@@ -52,7 +52,7 @@ class LoginForm extends React.Component {
 
         <button onClick={this.login}>Login </button>
         <br />
-        <button>Add new user button</button>
+        
       </div>
     );
   }
