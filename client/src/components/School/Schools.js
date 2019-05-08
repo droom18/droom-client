@@ -11,11 +11,12 @@ class Schools extends Component {
   }
 
   componentDidMount() {
+    console.log(this.props.isLoggedIn)
     // if logged in then do this else go to create user
     // this.props.history? .push probably -- give route to the login page
     if (!this.props.isLoggedIn) {
       this.props.history.push("/");
-    }
+    } else {
     axios
       .get("https://luncher-backend.herokuapp.com/api/schools")
       .then(res => {
@@ -27,6 +28,7 @@ class Schools extends Component {
         this.setState({ error: err });
       });
   }
+}
 
   addSchool = school => {
     axios
