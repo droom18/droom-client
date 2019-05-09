@@ -28,11 +28,11 @@ class LoginForm extends React.Component {
       .then(response => {
         console.log(response);
         localStorage.setItem("token", response.data.token);
-        this.setState({ ...this.state, isLoggedIn: true });
+        this.setState({ ...this.state, token: true });
       })
       .catch(err => console.log(err));
 
-    if (this.props.isLoggedIn) {
+    if (this.state.token) {
       return <Redirect to="/schools/schoolRoutes" />;
     } else {
     }
