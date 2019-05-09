@@ -6,7 +6,8 @@ class Admin extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      schools: []
+      schools: [],
+      role: "admin"
     };
   }
 
@@ -15,7 +16,7 @@ class Admin extends Component {
     // this.props.history? .push probably -- give route to the login page
     if (!this.props.isLoggedIn) {
       this.props.history.push("/");
-    }
+    } else {
     axios
       .get("https://luncher-backend.herokuapp.com/api/admin/school")
       .then(res => {
@@ -27,7 +28,7 @@ class Admin extends Component {
         this.setState({ error: err });
       });
   }
-
+  }
   // addSchool = school => {
   //   axios
   //     .post("https://droom-buildweek-4-15-19.herokuapp.com/api/", school)
@@ -41,6 +42,7 @@ class Admin extends Component {
   // };
 
   render() {
+    console.log("schools:", this.state.schools)
     return (
       <div className="Admin">
         <h1>Admin.js</h1>
@@ -50,13 +52,18 @@ class Admin extends Component {
                console.log(school) 
             }
             return (
-               <h3>{school}</h3>
-               <School
-              if logged in then go here if not go to login */}
-
-              <h3>{this.props.schools.schoolName}</h3>
-
-              // />
+              //  <h3>{school}</h3>
+              
+              <h3>{this.schools.schoolName}</h3> */}
+                {this.state.schools.map(school => {
+                  console.log("school", school)
+            return (
+              // if logged in then go here if not go to login
+              <div key={school.id}>
+                <li>
+                  {school.schoolName}, {school.state}
+                </li>
+              </div>
             );
           })}
         </ul>
