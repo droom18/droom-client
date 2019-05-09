@@ -48,7 +48,13 @@ class App extends React.Component {
               <Route path="/credentials/registerRoutes" component={NewUser} />
               <Route
                 path="/admins/adminRoutes"
-                render={props => <Admin {...props} isLoggedIn={this.state.isLoggedIn} schools={this.state.schools} />}
+                render={props => (
+                  <Admin
+                    {...props}
+                    isLoggedIn={this.state.isLoggedIn}
+                    schools={this.state.schools}
+                  />
+                )}
               />
               <Route path="/donors/donorRoutes" render={props => <NewSchool {...props} isLoggedIn={this.state.isLoggedIn} schools={this.state.schools} />}
               />
