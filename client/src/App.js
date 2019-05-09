@@ -32,7 +32,6 @@ class App extends React.Component {
 
   render() {
     return (
-      // <Router>
         <div className="App">
           <header className="App-header">
             <Navbar />
@@ -43,9 +42,7 @@ class App extends React.Component {
                 render={props => <Schools {...props} login={this.login} />}
               />
               <Route exact path="/" component={Homepage} />
-              <Route
-                exact
-                path="/schools/schoolRoutes"
+              <Route exact path="/schools/schoolRoutes"
                 render={props => <Schools {...props} isLoggedIn={this.state} />}
               />
               <Route path="/credentials/registerRoutes" component={NewUser} />
@@ -53,17 +50,14 @@ class App extends React.Component {
                 path="/admins/adminRoutes"
                 render={props => <Admin {...props} isLoggedIn={this.state.isLoggedIn} schools={this.state.schools} />}
               />
-              <Route path="/donors/donorRoutes" component={NewSchool} />
-
+              <Route path="/donors/donorRoutes" render={props => <NewSchool {...props} isLoggedIn={this.state.isLoggedIn} schools={this.state.schools} />}
+              />
               <Route path="/donations/donationRoutes" render={props => <DonationList {...props} isLoggedIn={this.state} />}
               />
                <Route path="/credentials/loginRoutes" component={Login} />
             </div>
-
-            <p>Test for GitHub PR</p>
           </header>
         </div>
-      // </Router>
     );
   }
 }
