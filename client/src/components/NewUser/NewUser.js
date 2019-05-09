@@ -52,54 +52,55 @@ class NewUser extends React.Component {
 
   render() {
     return (
-      <div style={newUserStyle}>
-        <h1>This is the registration page</h1>
-        <form>
-          First Name:
-          <input
-            type="text"
-            name="firstName"
-            placeholder="First Name"
-            value={this.state.firstName}
-            onChange={this.handleChange}
-          />
-          <br />
-          Last Name:
-          <input
-            type="text"
-            name="lastName"
-            placeholder="Last Name"
-            value={this.state.lastName}
-            onChange={this.handleChange}
-          />
-          <br />
-          Email:
-          <input
-            type="text"
-            name="email"
-            placeholder="Email"
-            value={this.state.email}
-            onChange={this.handleChange}
-          />
-          <br />
-          <label>Password:</label>
-          <input
-            type="password"
-            name="password"
-            placeholder="password"
-            value={this.state.password}
-            onChange={this.handleChange}
-          />
-          <p style={passwordReq}>*Password must be over 5 chars</p>
-          {/* Role: */}
-          {/* <input
+      <div className="newUserStyle">
+        <h1>Sign Up for Luncher!</h1>
+        <div className="form-container">
+          <form>
+            <p>First Name:</p>
+            <input
+              type="text"
+              name="firstName"
+              placeholder="First Name"
+              value={this.state.firstName}
+              onChange={this.handleChange}
+            />
+            <br />
+            <p>Last Name:</p>
+            <input
+              type="text"
+              name="lastName"
+              placeholder="Last Name"
+              value={this.state.lastName}
+              onChange={this.handleChange}
+            />
+            <br />
+            <p> Email:</p>
+            <input
+              type="text"
+              name="email"
+              placeholder="Email"
+              value={this.state.email}
+              onChange={this.handleChange}
+            />
+            <br />
+            <p>Password:</p>
+            <input
+              type="password"
+              name="password"
+              placeholder="password"
+              value={this.state.password}
+              onChange={this.handleChange}
+            />
+            <p style={passwordReq}>*Password must be over 5 chars</p>
+            {/* Role: */}
+            {/* <input
             type="text"
             name="role"
             placeholder="Role"
             value={this.state.role}
             onChange={this.handleChange}
           /> */}
-          {/* <br />
+            {/* <br />
           <input
             type="radio"
             name="role"
@@ -116,10 +117,12 @@ class NewUser extends React.Component {
           />
           <label htmlFor="donor"> Donor</label>
           <br /> */}
-          <button type="button" onClick={this.register}>
-            Add new user button
-          </button>
-        </form>
+            <br />
+            <button type="button" onClick={this.register}>
+              Sign Up
+            </button>
+          </form>
+        </div>
       </div>
     );
   }

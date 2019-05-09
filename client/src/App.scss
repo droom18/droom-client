@@ -1,3 +1,135 @@
 html {
-    color:red;
+  //   color: red;
+}
+
+.Schools {
+  width: auto;
+  text-align: center;
+  h1 {
+    font-size: 40px;
+  }
+  ul {
+    // display: flex;
+
+    li {
+      list-style: none;
+      border: solid 1px grey;
+      width: 400px;
+      margin: 10px 0;
+      padding: 20px;
+    }
+  }
+}
+
+.navbar {
+  display: flex;
+  padding-top: 10px;
+  // margin-bottom: 130px;
+  height: 60px;
+  justify-content: space-between;
+
+  .navLink {
+    font-family: "Optima", "sans-serif";
+    color: black;
+    font-size: 16px;
+    margin-right: 10px;
+    margin-left: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    &:hover {
+      color: teal;
+      font-size: 18px;
+      padding-bottom: 5px;
+      border-bottom: solid darkgrey 1px;
+    }
+  }
+}
+
+.homepage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 20px;
+  @media (min-width: 900px) {
+    padding: 0 200px;
+  }
+  h3 {
+    margin: 40px 0;
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    color: grey;
+    padding: 0 100px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid teal;
+  }
+  p {
+    font-family: "Optima", "sans-serif";
+    text-align: center;
+    margin-top: 20px;
+  }
+  @media (max-width: 500px) {
+    margin-bottom: 80px;
+  }
+  .homepage-register {
+    margin: 20px 0;
+    line-height: 8pt;
+    font-size: 20px;
+    .sign-up {
+      text-decoration: none;
+      color: black;
+      font-family: "Optima", "sans-serif";
+      &:hover {
+        color: teal;
+        font-size: 24px;
+      }
+    }
+  }
+}
+
+.login-container {
+  border: teal 1px solid;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 20px;
+  @media (min-width: 900px) {
+    padding: 0 200px;
+  }
+
+  input {
+    padding: 5px;
+    margin-top: 20px;
+  }
+  button {
+    margin-top: 20px;
+    padding: 2px 30px;
+  }
+}
+
+.newUserStyle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 20px;
+
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 50px;
+    color: grey;
+    padding: 0 100px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid teal;
+  }
+
+  p {
+    font-family: "Optima", "sans-serif";
+    text-align: center;
+    margin: 0;
+    margin-top: 20px;
+  }
+  input {
+    font-family: "Optima", "sans-serif";
+    text-align: center;
+  }
 }
