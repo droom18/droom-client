@@ -51,7 +51,13 @@ class App extends React.Component {
               <Route path="/credentials/registerRoutes" component={NewUser} />
               <Route
                 path="/admins/adminRoutes"
-                render={props => <Admin {...props} isLoggedIn={this.state.isLoggedIn} schools={this.state.schools} />}
+                render={props => (
+                  <Admin
+                    {...props}
+                    isLoggedIn={this.state.isLoggedIn}
+                    schools={this.state.schools}
+                  />
+                )}
               />
               <Route path="/donors/donorRoutes" component={NewSchool} />
 
@@ -59,8 +65,6 @@ class App extends React.Component {
               />
                <Route path="/credentials/loginRoutes" component={Login} />
             </div>
-
-            <p>Test for GitHub PR</p>
           </header>
         </div>
       // </Router>
