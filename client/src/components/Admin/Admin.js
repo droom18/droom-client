@@ -45,16 +45,16 @@ class Admin extends Component {
       <div className="Admin">
         <h1>Admin.js</h1>
         <ul>
-          {this.state.schools.map(school => {
+          {/* {this.state.schools.map(school => {
             {
-              /* console.log(school) */
+               console.log(school) 
             }
             return (
-              // <h3>{school}</h3>
-              // <School
-              // if logged in then go here if not go to login
+               <h3>{school}</h3>
+               <School
+              if logged in then go here if not go to login */}
 
-              <h3>{school.schoolName}</h3>
+              <h3>{this.props.schools.schoolName}</h3>
 
               // />
             );

@@ -21,9 +21,11 @@ class App extends React.Component {
   }
 
   login = cred => {
+    
     axios
       .post(`https://luncher-backend.herokuapp.com/api/login`, cred)
       .then(response => {
+        console.log(response)
         localStorage.setItem("token", response.data.token);
         this.setState({ ...this.state, isLoggedIn: true });
       })
@@ -32,7 +34,6 @@ class App extends React.Component {
 
   render() {
     return (
-      // <Router>
         <div className="App">
           <header className="App-header">
             <Navbar />
@@ -43,9 +44,7 @@ class App extends React.Component {
                 render={props => <Schools {...props} login={this.login} />}
               />
               <Route exact path="/" component={Homepage} />
-              <Route
-                exact
-                path="/schools/schoolRoutes"
+              <Route exact path="/schools/schoolRoutes"
                 render={props => <Schools {...props} isLoggedIn={this.state} />}
               />
               <Route path="/credentials/registerRoutes" component={NewUser} />
@@ -59,15 +58,14 @@ class App extends React.Component {
                   />
                 )}
               />
-              <Route path="/donors/donorRoutes" component={NewSchool} />
-
+              <Route path="/donors/donorRoutes" render={props => <NewSchool {...props} isLoggedIn={this.state.isLoggedIn} schools={this.state.schools} />}
+              />
               <Route path="/donations/donationRoutes" render={props => <DonationList {...props} isLoggedIn={this.state} />}
               />
                <Route path="/credentials/loginRoutes" component={Login} />
             </div>
           </header>
         </div>
-      // </Router>
     );
   }
 }
