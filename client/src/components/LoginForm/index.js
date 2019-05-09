@@ -1,5 +1,7 @@
 import React from "react";
 import axios from "axios";
+import { Redirect } from "react-router-dom";
+
 // import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 
 class LoginForm extends React.Component {
@@ -7,7 +9,8 @@ class LoginForm extends React.Component {
     super(props);
     this.state = {
       email: "",
-      password: ""
+      password: "",
+      token: false
     };
   }
 
@@ -25,8 +28,14 @@ class LoginForm extends React.Component {
       .then(response => {
         console.log(response);
         localStorage.setItem("token", response.data.token);
+        this.setState({ ...this.state, isLoggedIn: true });
       })
       .catch(err => console.log(err));
+
+    if (this.props.isLoggedIn) {
+      return <Redirect to="/schools/schoolRoutes" />;
+    } else {
+    }
   };
 
   render() {
