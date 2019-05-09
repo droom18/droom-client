@@ -1,5 +1,5 @@
 import React from "react";
-import axios from "axios";
+import { axiosWithAuth } from "../../axios/axiosWithAuth";
 
 // const newUserStyle = {
 //   border: "pink solid 2px",
@@ -20,8 +20,8 @@ class NewSchool extends React.Component {
       schoolName: "",
       state: "",
       zip: "",
-      fundsNeeded: "",
-    //   role: "admin"
+      fundsNeeded: ""
+      //   role: "admin"
     };
   }
 
@@ -34,24 +34,25 @@ class NewSchool extends React.Component {
     });
   };
 
-  addSchool = (school) => {
-    axios
-    // check api route
+  addSchool = school => {
+    console.log("new school:", school);
+    axiosWithAuth()
+      // check api route
       .post(`https://luncher-backend.herokuapp.com/api/admin/school`, school)
       .then(response => {
-        this.setState({state: response.data});
+        this.setState({ state: response.data });
         // if (response.data.token) {
         //   return <Redirect to="/schools/schoolRoutes" />;
         // }
         // this.setState({ state: response.data });
       })
       .catch(err => console.log(err));
-      this.setState({ 
-        schoolName: "",
-        state: "",
-        zip: "",
-        // maybe number
-        fundsNeeded: "",
+    this.setState({
+      schoolName: "",
+      state: "",
+      zip: "",
+      // maybe number
+      fundsNeeded: ""
     });
   };
 
@@ -97,7 +98,7 @@ class NewSchool extends React.Component {
               onChange={this.handleChange}
             />
             <br />
-            <button type="button" onClick={this.addSchool}>
+            <button type="button" onClick={() => this.addSchool(this.state)}>
               Sign Up
             </button>
           </form>

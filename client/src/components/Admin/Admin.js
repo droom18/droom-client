@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import axios from "axios";
+import { axiosWithAuth } from "../../axios/axiosWithAuth";
 // import School from './School';
 
 class Admin extends Component {
@@ -17,17 +17,25 @@ class Admin extends Component {
     if (!this.props.isLoggedIn) {
       this.props.history.push("/");
     } else {
-    axios
-      .get("https://luncher-backend.herokuapp.com/api/admin/school")
-      .then(res => {
-        console.log(res.data);
-        this.setState({ schools: res.data });
-      })
-      .catch(err => {
-        console.log(err);
-        this.setState({ error: err });
-      });
-  }
+      axiosWithAuth()
+        .get("https://luncher-backend.herokuapp.com/api/admin/school")
+        .then(res => {
+          console.log(res.data);
+          if (
+            res.data.message === "There is no school associated with this admin"
+          ) {
+            return (
+              <h1>There are no school associated with this administrator</h1>
+            );
+          } else {
+            this.setState({ schools: res.data });
+          }
+        })
+        .catch(err => {
+          console.log(err);
+          this.setState({ error: err });
+        });
+    }
   }
   // addSchool = school => {
   //   axios
@@ -42,31 +50,29 @@ class Admin extends Component {
   // };
 
   render() {
-    console.log("schools:", this.state.schools)
+    console.log("schools:", this.state.schools);
     return (
       <div className="Admin">
-        <h1>Admin.js</h1>
-        <ul>
-          {/* {this.state.schools.map(school => {
-            {
-               console.log(school) 
-            }
-            return (
-              //  <h3>{school}</h3>
-              
-              <h3>{this.schools.schoolName}</h3> */}
-                {this.state.schools.map(school => {
-                  console.log("school", school)
+        <h1>Admin</h1>
+        {/* if (this.state.schools[0].length == 0)
+        {<h1>There are no schools associated with this administrator.</h1>}
+        else
+        {} */}
+        {/* {this.state && } */}
+
+        {this.state.schools &&
+          this.state.schools.map(school => {
             return (
               // if logged in then go here if not go to login
               <div key={school.id}>
-                <li>
-                  {school.schoolName}, {school.state}
-                </li>
+                <ul>
+                  <li>
+                    {school.schoolName}, {school.state},{school.fundsReceived}
+                  </li>
+                </ul>
               </div>
             );
           })}
-        </ul>
       </div>
     );
   }
