@@ -16,7 +16,7 @@ const Homepage = () => {
         provide lunches for those that go without.
       </p>
 
-      <LoginForm />
+      {/* <LoginForm /> */}
 
       <div className="homepage-register">
         <p>If you are new to Luncher</p>

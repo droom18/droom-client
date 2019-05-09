@@ -15,7 +15,7 @@ class Schools extends Component {
     // if logged in then do this else go to create user
     // this.props.history? .push probably -- give route to the login page
     if (!this.props.isLoggedIn) {
-      this.props.history.push("/");
+      this.props.history.push("/credentials/loginRoutes");
     } else {
       axios
         .get("https://luncher-backend.herokuapp.com/api/schools")
