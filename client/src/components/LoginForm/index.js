@@ -64,7 +64,7 @@ class LoginForm extends React.Component {
             this.props.login(this.state);
           }}
         >
-          Login{" "}
+          Login
         </button>
         <br />
       </div>
