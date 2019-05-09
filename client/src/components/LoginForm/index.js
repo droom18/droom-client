@@ -1,6 +1,6 @@
 import React from "react";
-import axios from "axios";
-import { Redirect } from "react-router-dom";
+// import axios from "axios";
+// import { Redirect } from "react-router-dom";
 
 // import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 
@@ -59,13 +59,7 @@ class LoginForm extends React.Component {
           />
         </form>
 
-        <button
-          onClick={() => {
-            this.props.login(this.state);
-          }}
-        >
-          Login{" "}
-        </button>
+        <button onClick={() => {this.props.login(this.state) }}>Login</button>
         <br />
       </div>
     );

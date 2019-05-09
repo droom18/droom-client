@@ -45,7 +45,7 @@ class App extends React.Component {
               />
               <Route exact path="/" component={Homepage} />
               <Route exact path="/schools/schoolRoutes"
-                render={props => <Schools {...props} isLoggedIn={this.state} />}
+                render={props => <Schools {...props} isLoggedIn={this.state.isLoggedIn} />}
               />
               <Route path="/credentials/registerRoutes" component={NewUser} />
               <Route
@@ -62,7 +62,8 @@ class App extends React.Component {
               />
               <Route path="/donations/donationRoutes" render={props => <DonationList {...props} isLoggedIn={this.state} />}
               />
-               <Route path="/credentials/loginRoutes" component={Login} />
+               <Route path="/credentials/loginRoutes" component={props => <Login {...props} login={this.state} />}
+               />
             </div>
           </header>
         </div>
