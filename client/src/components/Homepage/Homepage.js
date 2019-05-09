@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import LoginForm from "../LoginForm";
 
 const Homepage = () => {
   return (
@@ -15,9 +14,6 @@ const Homepage = () => {
         declaring a donation amount they would need to be fulfilled in order to
         provide lunches for those that go without.
       </p>
-
-      {/* <LoginForm /> */}
-
       <div className="homepage-register">
         <p>If you are new to Luncher</p>
         <Link className="sign-up" to="/credentials/registerRoutes">
