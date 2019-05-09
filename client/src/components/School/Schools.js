@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import axios from "axios";
-// import School from './School';
 
 class Schools extends Component {
   constructor(props) {
@@ -12,8 +11,6 @@ class Schools extends Component {
 
   componentDidMount() {
     console.log(this.props);
-    // if logged in then do this else go to create user
-    // this.props.history? .push probably -- give route to the login page
     if (!this.props.isLoggedIn) {
       this.props.history.push("/credentials/loginRoutes");
     } else {
