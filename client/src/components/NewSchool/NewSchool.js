@@ -34,18 +34,19 @@ class NewSchool extends React.Component {
     });
   };
 
-  register = () => {
+  addSchool = (school) => {
     axios
-      .post(`https://luncher-backend.herokuapp.com/api/register`, this.state)
+    // check api route
+      .post(`https://luncher-backend.herokuapp.com/api/schools`, this.state)
       .then(response => {
         localStorage.setItem("token", response.data.token);
         if (response.data.token) {
           return <Redirect to="/schools/schoolRoutes" />;
         }
+        this.setState({ state: response.data });
       })
       .catch(err => console.log(err));
-
-    this.setState({
+      this.setState({ 
       schoolName: "",
       cityState: "",
       fundsNeeded: "",
@@ -63,7 +64,7 @@ class NewSchool extends React.Component {
             <p>School Name:</p>
             <input
               type="text"
-              name="firstName"
+              name="schoolName"
               placeholder="School Name"
               value={this.state.schoolName}
               onChange={this.handleChange}
@@ -72,9 +73,9 @@ class NewSchool extends React.Component {
             <p>City and State:</p>
             <input
               type="text"
-              name="lastName"
+              name="cityState"
               placeholder="Last Name"
-              value={this.state.lastName}
+              value={this.state.cityState}
               onChange={this.handleChange}
             />
             <br />
@@ -122,7 +123,7 @@ class NewSchool extends React.Component {
           <label htmlFor="donor"> Donor</label>
           <br /> */}
             <br />
-            <button type="button" onClick={this.register}>
+            <button type="button" onClick={this.addSchool}>
               Sign Up
             </button>
           </form>
