@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+// import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -30,10 +31,8 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>This is the login form</h1>
+      <div className="login-container">
         <form>
-          Username:
           <input
             type="text"
             name="email"
@@ -41,17 +40,15 @@ class LoginForm extends React.Component {
             value={this.state.email}
             onChange={this.handleChange}
           />
-          Password:
+          <br />
           <input
             type="password"
             name="password"
-            placeholder="password"
+            placeholder="Password"
             value={this.state.password}
             onChange={this.handleChange}
           />
         </form>
-
-        {/* <button onClick={this.login}>Login </button> */}
 
         <button onClick={() => this.login(this.state)}>Login </button>
         <br />

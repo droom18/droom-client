@@ -5,40 +5,40 @@ const Navbar = () => {
   return (
     <div className="navbar">
       <div>
-        <Link className="home" to="/">
+        <Link className=" navLink home" to="/">
           Home
         </Link>
       </div>
 
       <div>
-        <Link className="login" to="/credentials/loginRoutes">
+        <Link className="navLink login" to="/credentials/loginRoutes">
           Login
         </Link>
       </div>
 
       <div>
-        <Link className="sign-up" to="/credentials/registerRoutes">
+        <Link className="navLink sign-up" to="/credentials/registerRoutes">
           Sign Up
         </Link>
       </div>
 
       <div>
-        <Link className="school-form" to="/schools/schoolRoutes">
+        <Link className="navLink school-form" to="/schools/schoolRoutes">
           Participating Schools
         </Link>
       </div>
       <div>
-        <Link className="donation-list" to="/donations/donationRoutes">
+        <Link className="navLink donation-list" to="/donations/donationRoutes">
           Donation List
         </Link>
       </div>
       <div>
-        <Link className="admin" to="/admins/adminRoutes">
+        <Link className="navLink admin" to="/admins/adminRoutes">
           Admin page
         </Link>
       </div>
       <div>
-        <Link className="add-school" to="/donors/donorRoutes">
+        <Link className="navLink add-school" to="/donors/donorRoutes">
           Add School
         </Link>
       </div>
