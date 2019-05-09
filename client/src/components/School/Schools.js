@@ -11,7 +11,7 @@ class Schools extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props.isLoggedIn);
+    console.log(this.props);
     // if logged in then do this else go to create user
     // this.props.history? .push probably -- give route to the login page
     if (!this.props.isLoggedIn) {

@@ -21,10 +21,13 @@ class App extends React.Component {
   }
 
   login = cred => {
+    
     axios
       .post(`https://luncher-backend.herokuapp.com/api/login`, cred)
       .then(response => {
-        console.log({ token: response.data.token });
+
+        console.log(response)
+      
         localStorage.setItem("token", response.data.token);
         this.setState({ ...this.state, isLoggedIn: true });
       })
@@ -33,6 +36,7 @@ class App extends React.Component {
 
   render() {
     return (
+
       // <Router>
       <div className="App">
         <header className="App-header">
@@ -78,6 +82,7 @@ class App extends React.Component {
         </header>
       </div>
       // </Router>
+
     );
   }
 }
