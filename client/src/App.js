@@ -1,18 +1,16 @@
 import React from "react";
 import axios from "axios";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Route } from "react-router-dom";
 
 import Login from "./components/Login/Login";
 import Navbar from "./components/Navbar/Navbar";
 import Schools from "../src/components/School/Schools";
 import NewUser from "../src/components/NewUser/NewUser";
 import Homepage from "../src/components/Homepage/Homepage";
-
 import Admin from "./components/Admin/Admin";
 import NewSchool from "./components/NewSchool/NewSchool";
 import DonationList from "./components/DonationList/DonationList";
 
-// change to class -- get state -- is loggedIn? bool -- and have token(string)
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -34,7 +32,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <Router>
+      // <Router>
         <div className="App">
           <header className="App-header">
             <Navbar />
@@ -57,19 +55,15 @@ class App extends React.Component {
               />
               <Route path="/donors/donorRoutes" component={NewSchool} />
 
-              <Route
-                path="/donations/donationRoutes"
-                render={props => (
-                  <DonationList {...props} isLoggedIn={this.state} />
-                )}
+              <Route path="/donations/donationRoutes" render={props => <DonationList {...props} isLoggedIn={this.state} />}
               />
-              <Route path="/credentials/loginRoutes" component={Login} />
+               <Route path="/credentials/loginRoutes" component={Login} />
             </div>
 
             <p>Test for GitHub PR</p>
           </header>
         </div>
-      </Router>
+      // </Router>
     );
   }
 }
