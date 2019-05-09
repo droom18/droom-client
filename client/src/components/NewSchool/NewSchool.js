@@ -19,10 +19,10 @@ class NewSchool extends React.Component {
     super();
     this.state = {
       schoolName: "",
-      cityState: "",
+      state: "",
+      zip: "",
       fundsNeeded: "",
-      contact: "",
-      role: "admin"
+    //   role: "admin"
     };
   }
 
@@ -37,21 +37,21 @@ class NewSchool extends React.Component {
   addSchool = (school) => {
     axios
     // check api route
-      .post(`https://luncher-backend.herokuapp.com/api/schools`, this.state)
+      .post(`https://luncher-backend.herokuapp.com/api/admin/school`, school)
       .then(response => {
-        localStorage.setItem("token", response.data.token);
-        if (response.data.token) {
-          return <Redirect to="/schools/schoolRoutes" />;
-        }
-        this.setState({ state: response.data });
+        this.setState({state: response.data});
+        // if (response.data.token) {
+        //   return <Redirect to="/schools/schoolRoutes" />;
+        // }
+        // this.setState({ state: response.data });
       })
       .catch(err => console.log(err));
       this.setState({ 
-      schoolName: "",
-      cityState: "",
-      fundsNeeded: "",
-      contact: "",
-      role: "admin"
+        schoolName: "",
+        state: "",
+        zip: "",
+        // maybe number
+        fundsNeeded: "",
     });
   };
 
@@ -70,33 +70,33 @@ class NewSchool extends React.Component {
               onChange={this.handleChange}
             />
             <br />
-            <p>City and State:</p>
+            <p>State:</p>
             <input
               type="text"
-              name="cityState"
-              placeholder="Last Name"
-              value={this.state.cityState}
+              name="state"
+              placeholder="state"
+              value={this.state.state}
               onChange={this.handleChange}
             />
             <br />
-            <p> Funds Needed:</p>
+            <p>Zip Code:</p>
+            <input
+              type="text"
+              name="zip"
+              placeholder="zip"
+              value={this.state.zip}
+              onChange={this.handleChange}
+            />
+            <br />
+            <p>Funds Needed:</p>
             <input
               type="text"
               name="fundsNeeded"
-              placeholder="Funds Needed"
+              placeholder="funds needed"
               value={this.state.fundsNeeded}
               onChange={this.handleChange}
             />
-            <br />
-            <p>Who Should We Contact:</p>
-            <input
-              type="text"
-              name="contact"
-              placeholder="Contact"
-              value={this.state.contact}
-              onChange={this.handleChange}
-            />
-            <p style={passwordReq}>*Password must be over 5 chars</p>
+           
             {/* Role: */}
             {/* <input
             type="text"
