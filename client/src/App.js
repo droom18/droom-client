@@ -24,6 +24,7 @@ class App extends React.Component {
     axios
       .post(`https://luncher-backend.herokuapp.com/api/login`, cred)
       .then(response => {
+        console.log({token: response.data.token})
         localStorage.setItem("token", response.data.token);
         this.setState({ ...this.state, isLoggedIn: true });
       })
@@ -46,7 +47,7 @@ class App extends React.Component {
               <Route
                 exact
                 path="/schools/schoolRoutes"
-                render={props => <Schools {...props} isLoggedIn={this.state} />}
+                render={props => <Schools {...props} isLoggedIn={this.state.isLoggedIn} />}
               />
               <Route path="/credentials/registerRoutes" component={NewUser} />
               <Route
@@ -63,7 +64,7 @@ class App extends React.Component {
 
               <Route path="/donations/donationRoutes" render={props => <DonationList {...props} isLoggedIn={this.state} />}
               />
-               <Route path="/credentials/loginRoutes" component={Login} />
+            <Route path="/credentials/loginRoutes" component={props => <Login {...props} login={this.login}/>} />
             </div>
           </header>
         </div>
