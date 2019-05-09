@@ -2,12 +2,12 @@ import React from "react";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
 
-const newUserStyle = {
-  border: "pink solid 2px",
-  margin: "20px 0",
-  padding: "15px 10px"
-  // display: "flex"
-};
+// const newUserStyle = {
+//   border: "pink solid 2px",
+//   margin: "20px 0",
+//   padding: "15px 10px"
+//   // display: "flex"
+// };
 
 const passwordReq = {
   fontSize: "11px",
