@@ -9,8 +9,7 @@ class LoginForm extends React.Component {
     super(props);
     this.state = {
       email: "",
-      password: "",
-      token: false
+      password: ""
     };
   }
 
@@ -22,23 +21,24 @@ class LoginForm extends React.Component {
     });
   };
 
-  login = () => {
-    axios
-      .post(`https://luncher-backend.herokuapp.com/api/login`, this.state)
-      .then(response => {
-        console.log(response);
-        localStorage.setItem("token", response.data.token);
-        this.setState({ ...this.state, token: true });
-      })
-      .catch(err => console.log(err));
+  // login = () => {
+  //   axios
+  //     .post(`https://luncher-backend.herokuapp.com/api/login`, this.state)
+  //     .then(response => {
+  //       console.log(response);
+  //       localStorage.setItem("token", response.data.token);
+  //       this.setState({ ...this.state, token: true });
+  //     })
+  //     .catch(err => console.log(err));
 
-    if (this.state.token) {
-      return <Redirect to="/schools/schoolRoutes" />;
-    } else {
-    }
-  };
+  //   if (this.state.token) {
+  //     return <Redirect to="/schools/schoolRoutes" />;
+  //   } else {
+  //   }
+  // };
 
   render() {
+    console.log({ login: this.props.login });
     return (
       <div className="login-container">
         <form>
@@ -59,7 +59,13 @@ class LoginForm extends React.Component {
           />
         </form>
 
-        <button onClick={() => this.login(this.state)}>Login </button>
+        <button
+          onClick={() => {
+            this.props.login(this.state);
+          }}
+        >
+          Login{" "}
+        </button>
         <br />
       </div>
     );
