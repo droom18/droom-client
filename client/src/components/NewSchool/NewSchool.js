@@ -27,6 +27,7 @@ class NewSchool extends React.Component {
 
   handleChange = e => {
     e.preventDefault();
+    // event.persist();
     this.setState({
       ...this.state,
       [e.target.name]: e.target.value
