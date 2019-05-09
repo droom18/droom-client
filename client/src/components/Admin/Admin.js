@@ -50,16 +50,9 @@ class Admin extends Component {
   // };
 
   render() {
-    console.log("schools:", this.state.schools);
     return (
       <div className="Admin">
         <h1>Admin</h1>
-        {/* if (this.state.schools[0].length == 0)
-        {<h1>There are no schools associated with this administrator.</h1>}
-        else
-        {} */}
-        {/* {this.state && } */}
-
         {this.state.schools &&
           this.state.schools.map(school => {
             return (
