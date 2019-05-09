@@ -59,7 +59,17 @@ class LoginForm extends React.Component {
           />
         </form>
 
+<<<<<<< HEAD
         <button onClick={() => {this.props.login(this.state) }}>Login</button>
+=======
+        <button
+          onClick={() => {
+            this.props.login(this.state);
+          }}
+        >
+          Login
+        </button>
+>>>>>>> b4284cb5adf2169518e7767af5fb0596ff14acdf
         <br />
       </div>
     );
