@@ -36,7 +36,6 @@ class Admin extends Component {
   }
 
   render() {
-    console.log("schools:", this.state.schools);
     return (
       <div className="Admin">
         <h1>Admin</h1>
