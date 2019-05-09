@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import { Redirect } from "react-router-dom";
 
 const newUserStyle = {
   border: "pink solid 2px",
@@ -38,6 +39,9 @@ class NewUser extends React.Component {
       .post(`https://luncher-backend.herokuapp.com/api/register`, this.state)
       .then(response => {
         localStorage.setItem("token", response.data.token);
+        if (response.data.token) {
+          return <Redirect to="/schools/schoolRoutes" />;
+        }
       })
       .catch(err => console.log(err));
 
