@@ -10,9 +10,18 @@ class Admin extends Component {
       fundsReceived: "",
       state: "",
       zip: "",
-      message: ""
+      message: "",
+      addedFunds: ""
     };
   }
+
+  handleChange = e => {
+    e.preventDefault();
+    this.setState({
+      ...this.state,
+      [e.target.name]: e.target.value
+    });
+  };
 
   componentDidMount() {
     if (!this.props.isLoggedIn) {
@@ -47,6 +56,16 @@ class Admin extends Component {
     }
   }
 
+  addFunds = money => {
+    axiosWithAuth()
+      // check api route
+      .put(`https://luncher-backend.herokuapp.com/api/admin/school`, money)
+      .then(res => {
+        this.setState({ fundsNeeded: res.data.fundsNeeded });
+      })
+      .catch(err => console.log(err));
+  };
+
   render() {
     console.log(this.state.schoolName);
     return (
@@ -61,44 +80,21 @@ class Admin extends Component {
 
         <br />
         <div className="form-container">
+          <h4>Update your needs:</h4>
           <form>
-            <p>School Name:</p>
-            <input
-              type="text"
-              name="schoolName"
-              placeholder="School Name"
-              value={this.state.schoolName}
-              onChange={this.handleChange}
-            />
-            <br />
-            <p>State:</p>
-            <input
-              type="text"
-              name="state"
-              placeholder="state"
-              value={this.state.state}
-              onChange={this.handleChange}
-            />
-            <br />
-            <p>Zip Code:</p>
-            <input
-              type="text"
-              name="zip"
-              placeholder="zip"
-              value={this.state.zip}
-              onChange={this.handleChange}
-            />
-            <br />
-            <p>Funds Needed:</p>
             <input
               type="text"
               name="fundsNeeded"
-              placeholder="funds needed"
-              value={this.state.fundsNeeded}
+              placeholder="Funds Needed"
+              value={this.state.addedFunds}
               onChange={this.handleChange}
             />
+
             <br />
-            <button type="button" onClick={() => this.addSchool(this.state)}>
+            <button
+              type="button"
+              onClick={() => this.addFunds(this.state.fundsNeeded)}
+            >
               Sign Up
             </button>
           </form>
