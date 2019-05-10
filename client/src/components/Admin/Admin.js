@@ -71,11 +71,11 @@ class Admin extends Component {
   };
 
 
-  deleteUser = () => {
-    console.log(this.state);
+  deleteUser = (school) => {
+    console.log("deleteUser");
     axiosWithAuth()
     // check url /school(cs)?
-      .delete(`https://luncher-backend.herokuapp.com/api/admin/`, {
+      .delete(`https://luncher-backend.herokuapp.com/api/admin/${school}`, {
       })
       .then(res => {
         console.log(res);
@@ -84,6 +84,30 @@ class Admin extends Component {
         });
       })
       .catch(err => console.log(err));
+
+    axiosWithAuth()
+    .put(`https://luncher-backend.herokuapp.com/api/admin/school`, {
+        schoolName: "",
+        fundsNeeded: 0,
+      fundsReceived: "",
+      state: "",
+      zip: "",
+      message: "",
+      addedFunds: 0
+    })
+    .then(res => {
+      console.log(res);
+      this.setState({
+        schoolName: "",
+        fundsNeeded: 0,
+        fundsReceived: "",
+        state: "",
+        zip: "",
+        message: "",
+        addedFunds: 0
+      });
+    })
+    .catch(err => console.log(err));
   };
 
 
@@ -118,7 +142,8 @@ class Admin extends Component {
               Request Funds
             </button>
           </form>
-          <button type="button" onClick={this.deleteUser}>
+          <button type="button" onClick={this.deleteUser(this.state)}>
+          
               Delete User
             </button>
         </div>
