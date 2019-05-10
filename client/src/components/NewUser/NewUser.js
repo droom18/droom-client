@@ -33,7 +33,7 @@ class NewUser extends React.Component {
       .then(response => {
         localStorage.setItem("token", response.data.token);
         if (response.data.token) {
-          return <Redirect to="/schools/schoolRoutes" />;
+          return this.props.history.push("/donations/donationRoutes");
         }
       })
       .catch(err => console.log(err));
