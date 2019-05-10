@@ -70,6 +70,25 @@ class Admin extends Component {
       .catch(err => console.log(err));
   };
 
+
+  deleteUser = () => {
+    console.log(this.state);
+    axiosWithAuth()
+    // check url /school(cs)?
+      .delete(`https://luncher-backend.herokuapp.com/api/admin/`, {
+      })
+      .then(res => {
+        console.log(res);
+        this.setState({
+          
+        });
+      })
+      .catch(err => console.log(err));
+  };
+
+
+
+
   render() {
     console.log(this.state.schoolName);
     return (
@@ -99,6 +118,9 @@ class Admin extends Component {
               Request Funds
             </button>
           </form>
+          <button type="button" onClick={this.deleteUser}>
+              Delete User
+            </button>
         </div>
       </div>
     );
