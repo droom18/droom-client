@@ -6,20 +6,20 @@ class Admin extends Component {
     super(props);
     this.state = {
       schoolName: "",
-      fundsNeeded: "",
+      fundsNeeded: 0,
       fundsReceived: "",
       state: "",
       zip: "",
       message: "",
-      addedFunds: ""
+      addedFunds: 0
     };
   }
 
   handleChange = e => {
-    e.preventDefault();
+    // e.preventDefault();
+    console.log(typeof e.target.value);
     this.setState({
-      ...this.state,
-      [e.target.name]: e.target.value
+      [e.target.name]: parseInt(e.target.value, 10)
     });
   };
 
@@ -31,7 +31,7 @@ class Admin extends Component {
         .get("https://luncher-backend.herokuapp.com/api/admin/school")
         .then(res => {
           // this.setState({ schools: res.data.school });
-          console.log(res);
+          console.log(typeof res.data.fundsNeeded);
           this.setState({
             schoolName: res.data.schoolName,
             fundsNeeded: res.data.fundsNeeded,
@@ -47,8 +47,8 @@ class Admin extends Component {
         });
       this.setState({
         schoolName: "",
-        fundsNeeded: "",
-        fundsReceived: "",
+        fundsNeeded: 0,
+        fundsReceived: 0,
         state: "",
         zip: "",
         message: ""
@@ -56,12 +56,19 @@ class Admin extends Component {
     }
   }
 
-  addFunds = money => {
+  addFunds = () => {
+    console.log(this.state);
     axiosWithAuth()
       // check api route
-      .put(`https://luncher-backend.herokuapp.com/api/admin/school`, money)
+      .put(`https://luncher-backend.herokuapp.com/api/admin/school`, {
+        fundsNeeded: this.state.fundsNeeded + this.state.addedFunds
+      })
       .then(res => {
-        this.setState({ fundsNeeded: res.data.fundsNeeded });
+        console.log(res);
+        this.setState({
+          addedFunds: 0,
+          fundsNeeded: this.state.fundsNeeded + this.state.addedFunds
+        });
       })
       .catch(err => console.log(err));
   };
@@ -83,18 +90,15 @@ class Admin extends Component {
           <h4>Update your needs:</h4>
           <form>
             <input
-              type="text"
-              name="fundsNeeded"
+              type="number"
+              name="addedFunds"
               placeholder="Funds Needed"
               value={this.state.addedFunds}
               onChange={this.handleChange}
             />
 
             <br />
-            <button
-              type="button"
-              onClick={() => this.addFunds(this.state.fundsNeeded)}
-            >
+            <button type="button" onClick={this.addFunds}>
               Sign Up
             </button>
           </form>
