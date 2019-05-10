@@ -2,13 +2,6 @@ import React from "react";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
 
-// const newUserStyle = {
-//   border: "pink solid 2px",
-//   margin: "20px 0",
-//   padding: "15px 10px"
-//   // display: "flex"
-// };
-
 const passwordReq = {
   fontSize: "11px",
   margin: "0px"
@@ -96,31 +89,6 @@ class NewUser extends React.Component {
               onChange={this.handleChange}
             />
             <p style={passwordReq}>*Password must be over 5 chars</p>
-            {/* Role: */}
-            {/* <input
-            type="text"
-            name="role"
-            placeholder="Role"
-            value={this.state.role}
-            onChange={this.handleChange}
-          /> */}
-            {/* <br />
-          <input
-            type="radio"
-            name="role"
-            value={this.state.role}
-            onChange={this.handleChange}
-          />
-          <label htmlFor="admin"> Administrator</label>
-          <br />
-          <input
-            type="radio"
-            name="role"
-            value={this.state.role}
-            onChange={this.handleChange}
-          />
-          <label htmlFor="donor"> Donor</label>
-          <br /> */}
             <br />
             <button type="button" onClick={this.register}>
               Sign Up

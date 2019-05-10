@@ -1,18 +1,6 @@
 import React from "react";
 import { axiosWithAuth } from "../../axios/axiosWithAuth";
 
-// const newUserStyle = {
-//   border: "pink solid 2px",
-//   margin: "20px 0",
-//   padding: "15px 10px"
-//   // display: "flex"
-// };
-
-// const passwordReq = {
-//   fontSize: "11px",
-//   margin: "0px"
-// };
-
 class NewSchool extends React.Component {
   constructor() {
     super();
@@ -21,13 +9,11 @@ class NewSchool extends React.Component {
       state: "",
       zip: "",
       fundsNeeded: ""
-      //   role: "admin"
     };
   }
 
   handleChange = e => {
     e.preventDefault();
-    // event.persist();
     this.setState({
       ...this.state,
       [e.target.name]: e.target.value
@@ -37,21 +23,15 @@ class NewSchool extends React.Component {
   addSchool = school => {
     console.log("new school:", school);
     axiosWithAuth()
-      // check api route
       .post(`https://luncher-backend.herokuapp.com/api/admin/school`, school)
       .then(response => {
         this.setState({ state: response.data });
-        // if (response.data.token) {
-        //   return <Redirect to="/schools/schoolRoutes" />;
-        // }
-        // this.setState({ state: response.data });
       })
       .catch(err => console.log(err));
     this.setState({
       schoolName: "",
       state: "",
       zip: "",
-      // maybe number¸¸¸
       fundsNeeded: ""
     });
   };

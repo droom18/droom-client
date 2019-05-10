@@ -46,7 +46,6 @@ class Schools extends Component {
         <ul>
           {this.state.schools.map(school => {
             return (
-              // if logged in then go here if not go to login
               <div key={school.id}>
                 <li>
                   {school.schoolName}, {school.state}

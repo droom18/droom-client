@@ -16,7 +16,6 @@ class Admin extends Component {
   }
 
   handleChange = e => {
-    // e.preventDefault();
     console.log(typeof e.target.value);
     this.setState({
       [e.target.name]: parseInt(e.target.value, 10)
@@ -30,7 +29,6 @@ class Admin extends Component {
       axiosWithAuth()
         .get("https://luncher-backend.herokuapp.com/api/admin/school")
         .then(res => {
-          // this.setState({ schools: res.data.school });
           console.log(typeof res.data.fundsNeeded);
           this.setState({
             schoolName: res.data.schoolName,
@@ -59,7 +57,6 @@ class Admin extends Component {
   addFunds = () => {
     console.log(this.state);
     axiosWithAuth()
-      // check api route
       .put(`https://luncher-backend.herokuapp.com/api/admin/school`, {
         fundsNeeded: this.state.fundsNeeded + this.state.addedFunds
       })
@@ -99,7 +96,7 @@ class Admin extends Component {
 
             <br />
             <button type="button" onClick={this.addFunds}>
-              Sign Up
+              Request Funds
             </button>
           </form>
         </div>
@@ -109,16 +106,3 @@ class Admin extends Component {
 }
 
 export default Admin;
-// {this.state.schools &&
-//   this.state.schools.map(school => {
-//     return (
-//       <div>
-//         {/* key={school.id}> */}
-//         <ul>
-//           <li>
-//             {school.schoolName} , {school.state},{school.fundsReceived}
-//           </li>
-//         </ul>
-//       </div>
-//     );
-//   })}
