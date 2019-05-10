@@ -59,7 +59,7 @@ class Admin extends Component {
   addFunds = money => {
     axiosWithAuth()
       // check api route
-      .put(`https://luncher-backend.herokuapp.com/api/admin/school`, money)
+      .post(`https://luncher-backend.herokuapp.com/api/admin/school`, money)
       .then(res => {
         this.setState({ fundsNeeded: res.data.fundsNeeded });
       })
@@ -86,7 +86,7 @@ class Admin extends Component {
               type="text"
               name="fundsNeeded"
               placeholder="Funds Needed"
-              value={this.state.addedFunds}
+              value={this.state.fundsNeeded}
               onChange={this.handleChange}
             />
 
@@ -95,7 +95,7 @@ class Admin extends Component {
               type="button"
               onClick={() => this.addFunds(this.state.fundsNeeded)}
             >
-              Sign Up
+              Request Funds
             </button>
           </form>
         </div>
