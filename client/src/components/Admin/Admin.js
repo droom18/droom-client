@@ -7,7 +7,10 @@ class Admin extends Component {
     this.state = {
       schoolName: "",
       fundsNeeded: "",
-      fundsReceived: ""
+      fundsReceived: "",
+      state: "",
+      zip: "",
+      message: ""
     };
   }
 
@@ -23,7 +26,10 @@ class Admin extends Component {
           this.setState({
             schoolName: res.data.schoolName,
             fundsNeeded: res.data.fundsNeeded,
-            fundsReceived: res.data.fundsReceived
+            fundsReceived: res.data.fundsReceived,
+            state: res.data.state,
+            zip: res.data.zip,
+            message: res.data.message
           });
           //   if (
           //     res.data.message === "There is no school associated with this admin"
@@ -47,10 +53,13 @@ class Admin extends Component {
     console.log(this.state.schoolName);
     return (
       <div className="Admin">
-        <h1>Admin</h1>
-        <p>School: {this.state.schoolName}</p>
+        <h1>Your School Account</h1>
+        <p>
+          School: {this.state.schoolName} {this.state.state}, {this.state.zip}
+        </p>
         <p>Need: {this.state.fundsNeeded}</p>
         <p>Received: {this.state.fundsReceived}</p>
+        <p>Status: {this.state.message}</p>
       </div>
     );
   }
