@@ -8,7 +8,7 @@ class Schools extends Component {
       schools: []
     };
   }
-
+  git;
   componentDidMount() {
     console.log(this.props);
     if (!this.props.isLoggedIn) {
