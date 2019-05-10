@@ -51,6 +51,7 @@ class Schools extends Component {
                 <li>
                   {school.schoolName}, {school.state}
                 </li>
+                <p>Need: {school.fundsNeeded}</p>
               </div>
             );
           })}
