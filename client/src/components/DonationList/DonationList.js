@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import axios from "axios";
-// import School from './School';
 
 class DonationList extends Component {
   constructor(props) {
@@ -11,8 +10,6 @@ class DonationList extends Component {
   }
 
   componentDidMount() {
-    // if logged in then do this else go to create user
-    // this.props.history? .push probably -- give route to the login page
     if (!this.props.isLoggedIn) {
       this.props.history.push("/");
     }
@@ -63,9 +60,5 @@ class DonationList extends Component {
     );
   }
 }
-
-// Schools.defaultProps = {
-//  smurfs: [],
-// };
 
 export default DonationList;

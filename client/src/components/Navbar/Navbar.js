@@ -9,19 +9,16 @@ const Navbar = () => {
           Home
         </Link>
       </div>
-
       <div>
         <Link className="navLink login" to="/credentials/loginRoutes">
           Login
         </Link>
       </div>
-
       <div>
         <Link className="navLink sign-up" to="/credentials/registerRoutes">
           Sign Up
         </Link>
       </div>
-
       <div>
         <Link className="navLink school-form" to="/schools/schoolRoutes">
           Participating Schools

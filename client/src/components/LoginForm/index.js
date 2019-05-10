@@ -1,8 +1,4 @@
 import React from "react";
-import axios from "axios";
-import { Redirect } from "react-router-dom";
-
-// import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -20,22 +16,6 @@ class LoginForm extends React.Component {
       [e.target.name]: e.target.value
     });
   };
-
-  // login = () => {
-  //   axios
-  //     .post(`https://luncher-backend.herokuapp.com/api/login`, this.state)
-  //     .then(response => {
-  //       console.log(response);
-  //       localStorage.setItem("token", response.data.token);
-  //       this.setState({ ...this.state, token: true });
-  //     })
-  //     .catch(err => console.log(err));
-
-  //   if (this.state.token) {
-  //     return <Redirect to="/schools/schoolRoutes" />;
-  //   } else {
-  //   }
-  // };
 
   render() {
     console.log({ login: this.props.login });
@@ -58,7 +38,6 @@ class LoginForm extends React.Component {
             onChange={this.handleChange}
           />
         </form>
-
         <button
           onClick={() => {
             this.props.login(this.state);

@@ -1,7 +1,3 @@
-html {
-  //   color: red;
-}
-
 .Schools {
   width: auto;
   text-align: center;
@@ -12,8 +8,6 @@ html {
     font-size: 40px;
   }
   ul {
-    // display: flex;
-
     li {
       list-style: none;
       border: solid 1px grey;
@@ -27,7 +21,6 @@ html {
 .navbar {
   display: flex;
   padding-top: 10px;
-  // margin-bottom: 130px;
   height: 60px;
   justify-content: space-between;
 
