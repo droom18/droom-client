@@ -1,5 +1,17 @@
 import React from "react";
-import { axiosWithAuth } from "../../axios/axiosWithAuth";
+import axios from "axios";
+
+// const newUserStyle = {
+//   border: "pink solid 2px",
+//   margin: "20px 0",
+//   padding: "15px 10px"
+//   // display: "flex"
+// };
+
+// const passwordReq = {
+//   fontSize: "11px",
+//   margin: "0px"
+// };
 
 class NewSchool extends React.Component {
   constructor() {
@@ -8,36 +20,38 @@ class NewSchool extends React.Component {
       schoolName: "",
       state: "",
       zip: "",
-      fundsNeeded: ""
-      //   role: "admin"
+      fundsNeeded: "",
+    //   role: "admin"
     };
   }
 
   handleChange = e => {
-    e.preventDefault();
+    // e.preventDefault();
+    // event.persist();
     this.setState({
       ...this.state,
       [e.target.name]: e.target.value
     });
   };
 
-  addSchool = school => {
-    console.log("new school:", school);
-    axiosWithAuth()
+  addSchool = (school) => {
+    axios
+    // check api route
       .post(`https://luncher-backend.herokuapp.com/api/admin/school`, school)
       .then(response => {
-        this.setState({ state: response.data });
+        this.setState({state: response.data});
         // if (response.data.token) {
         //   return <Redirect to="/schools/schoolRoutes" />;
         // }
         // this.setState({ state: response.data });
       })
       .catch(err => console.log(err));
-    this.setState({
-      schoolName: "",
-      state: "",
-      zip: "",
-      fundsNeeded: ""
+      this.setState({ 
+        schoolName: "",
+        state: "",
+        zip: "",
+        // maybe number
+        fundsNeeded: "",
     });
   };
 
@@ -83,7 +97,7 @@ class NewSchool extends React.Component {
               onChange={this.handleChange}
             />
             <br />
-            <button type="button" onClick={() => this.addSchool(this.state)}>
+            <button type="button" onClick={this.addSchool}>
               Sign Up
             </button>
           </form>
