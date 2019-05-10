@@ -5,8 +5,9 @@ class Admin extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      schools: [],
-      role: "admin"
+      schoolName: "",
+      fundsNeeded: "",
+      fundsReceived: ""
     };
   }
 
@@ -17,16 +18,23 @@ class Admin extends Component {
       axiosWithAuth()
         .get("https://luncher-backend.herokuapp.com/api/admin/school")
         .then(res => {
-          console.log(res.data);
-          if (
-            res.data.message === "There is no school associated with this admin"
-          ) {
-            return (
-              <h1>There are no school associated with this administrator</h1>
-            );
-          } else {
-            this.setState({ schools: res.data });
-          }
+          // this.setState({ schools: res.data.school });
+          console.log(res);
+          this.setState({
+            schoolName: res.data.schoolName,
+            fundsNeeded: res.data.fundsNeeded,
+            fundsReceived: res.data.fundsReceived
+          });
+          //   if (
+          //     res.data.message === "There is no school associated with this admin"
+          //   ) {
+          //     return (
+          //       <h1>There are no school associated with this administrator</h1>
+          //     );
+          //   } else {
+          //     this.setState({ schools: res.data.schoolName });
+          //   }
+          // })
         })
         .catch(err => {
           console.log(err);
@@ -36,25 +44,29 @@ class Admin extends Component {
   }
 
   render() {
+    console.log(this.state.schoolName);
     return (
       <div className="Admin">
         <h1>Admin</h1>
-        {this.state.schools &&
-          this.state.schools.map(school => {
-            return (
-              <div> 
-                {/* key={school.id}> */}
-                <ul>
-                  <li>
-                    {school.schoolName} , {school.state},{school.fundsReceived}
-                  </li>
-                </ul>
-              </div>
-            );
-          })}
+        <p>School: {this.state.schoolName}</p>
+        <p>Need: {this.state.fundsNeeded}</p>
+        <p>Received: {this.state.fundsReceived}</p>
       </div>
     );
   }
 }
 
 export default Admin;
+// {this.state.schools &&
+//   this.state.schools.map(school => {
+//     return (
+//       <div>
+//         {/* key={school.id}> */}
+//         <ul>
+//           <li>
+//             {school.schoolName} , {school.state},{school.fundsReceived}
+//           </li>
+//         </ul>
+//       </div>
+//     );
+//   })}
