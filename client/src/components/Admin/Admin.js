@@ -31,21 +31,19 @@ class Admin extends Component {
             zip: res.data.zip,
             message: res.data.message
           });
-          //   if (
-          //     res.data.message === "There is no school associated with this admin"
-          //   ) {
-          //     return (
-          //       <h1>There are no school associated with this administrator</h1>
-          //     );
-          //   } else {
-          //     this.setState({ schools: res.data.schoolName });
-          //   }
-          // })
         })
         .catch(err => {
           console.log(err);
           this.setState({ error: err });
         });
+      this.setState({
+        schoolName: "",
+        fundsNeeded: "",
+        fundsReceived: "",
+        state: "",
+        zip: "",
+        message: ""
+      });
     }
   }
 
@@ -60,6 +58,51 @@ class Admin extends Component {
         <p>Need: {this.state.fundsNeeded}</p>
         <p>Received: {this.state.fundsReceived}</p>
         <p>Status: {this.state.message}</p>
+
+        <br />
+        <div className="form-container">
+          <form>
+            <p>School Name:</p>
+            <input
+              type="text"
+              name="schoolName"
+              placeholder="School Name"
+              value={this.state.schoolName}
+              onChange={this.handleChange}
+            />
+            <br />
+            <p>State:</p>
+            <input
+              type="text"
+              name="state"
+              placeholder="state"
+              value={this.state.state}
+              onChange={this.handleChange}
+            />
+            <br />
+            <p>Zip Code:</p>
+            <input
+              type="text"
+              name="zip"
+              placeholder="zip"
+              value={this.state.zip}
+              onChange={this.handleChange}
+            />
+            <br />
+            <p>Funds Needed:</p>
+            <input
+              type="text"
+              name="fundsNeeded"
+              placeholder="funds needed"
+              value={this.state.fundsNeeded}
+              onChange={this.handleChange}
+            />
+            <br />
+            <button type="button" onClick={() => this.addSchool(this.state)}>
+              Sign Up
+            </button>
+          </form>
+        </div>
       </div>
     );
   }
